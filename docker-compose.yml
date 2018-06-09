@@ -1,0 +1,18 @@
+version: '2'
+
+services:
+  dev:
+    build:
+      context: .
+      dockerfile: dev-Dockerfile
+    command: bash -c "/usr/bin/atom -f ."
+    volumes:
+      - ./code:/code
+      - /tmp/.X11-unix/:/tmp/.X11-unix/
+      - /dev/shm:/dev/shm
+      - ~/.Xauthority:/root/.Xauthority:rw
+      - ./.docker/dev/volumes/home/.atom:/root/.atom
+    environment:
+        - DISPLAY=unix:0
+    #network_mode: "host"
+    working_dir: /code
