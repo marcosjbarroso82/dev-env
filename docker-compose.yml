@@ -8,6 +8,7 @@ services:
     command: bash -c "/usr/bin/atom -f ."
     volumes:
       - ./code:/code
+      - ./.docker/dev/volumes/exercism:/root/exercism
       - /tmp/.X11-unix/:/tmp/.X11-unix/
       - /dev/shm:/dev/shm
       - ~/.Xauthority:/root/.Xauthority:rw

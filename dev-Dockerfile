@@ -32,9 +32,26 @@ RUN apt-get update && \
       libgl1-mesa-glx \
       libgl1-mesa-dri \
       python \
+      vim \
       xdg-utils && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* && \
     curl -L https://github.com/atom/atom/releases/download/${ATOM_VERSION}/atom-amd64.deb > /tmp/atom.deb && \
     dpkg -i /tmp/atom.deb && \
     rm -f /tmp/atom.deb
+
+
+# Excercism
+WORKDIR /tmp
+RUN wget https://github.com/exercism/cli/releases/download/v2.4.1/exercism-linux-64bit.tgz
+RUN tar -xzvf exercism-linux-64bit.tgz
+RUN mv exercism /usr/local/bin
+RUN exercism configure --key=8c8484d253ec4636a73aa7822561e824
+RUN mkdir -p ~/.config/exercism/
+RUN curl http://cli.exercism.io/shell/exercism_completion.bash > ~/.config/exercism/exercism_completion.bash
+RUN echo $'\n\
+if [ -f ~/.config/exercism/exercism_completion.zsh ]; then \n\
+  . ~/.config/exercism/exercism_completion.zsh \n\
+fi' >> .bashrc
+# Install Javascript Excercism's dependencies
+RUN npm install -g jasmine

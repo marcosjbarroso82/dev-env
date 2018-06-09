@@ -3,6 +3,3 @@ libudev: udev_has_devtmpfs: name_to_handle_at on /dev: Operation not permitted
 libGL error: pci id for fd 13: 8086:5916, driver (null)
 libGL error: No driver found
 libGL error: failed to load driver: (null)
-Attempting to call a function in a renderer window that has been closed or released.
-Function provided here: worker.js:71:22
-Remote event names: destroyed, crashed
