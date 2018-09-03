@@ -1,5 +1,5 @@
 # Docker Image ubuntu-dev
-Docker image to use as dev environment.
+Docker image to use as dev environment. This image can run gui apps like Atom editor.
 
 ## Install
 Si no existe ~/.Xauthority, hay que crearlo
